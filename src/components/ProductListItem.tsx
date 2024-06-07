@@ -2,19 +2,18 @@ import { StyleSheet, Image, Text, Pressable } from 'react-native';
 import Colors from '../constants/Colors';
 import { Product } from '../types';
 import { Link } from 'expo-router';
+import { defaultPizzaImage } from '../constants/Images';
 
 type ProductListItemProps = {
     product: Product;
 }
-
-const IMAGE_DEFAULT_FAIL_LOAD = 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/default.png'
 
 const ProductListItem = ({ product }: ProductListItemProps) => {
     return (
         <Link href={`menu/${product.id}`} asChild>
             <Pressable style={styles.container}>
                 <Image
-                    source={{ uri: product.image || IMAGE_DEFAULT_FAIL_LOAD }}
+                    source={{ uri: product.image || defaultPizzaImage }}
                     style={styles.image}
                     resizeMode="contain"
                 />
